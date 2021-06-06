@@ -1,0 +1,101 @@
+.headerTitle{
+    text-align: center;
+    font-family: Helvetica Neue;
+    font-size: 20px;
+    color:#555;
+    margin-top:20px;
+}
+.tab-scroll-wrapper{
+    border: 1px solid #ccc;
+    border-radius:4px;
+    width:50%;
+    height:30vh;
+    margin: 20px auto 0 auto;
+}
+.tabContainer{
+    display:flex;
+    align-items: center;
+    height:85px;
+    margin: 10px auto 0 auto;
+    width:76%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+}
+.react-tabs-container{
+    background-color: #FFF!important;
+    border-color:#FFF!important;
+    overflow-x: scroll!important;
+    overflow-y: hidden;
+    height:50px!important;
+}
+.react-tabs-tab {
+    color: #555!important;
+    width: 65px!important;
+    min-width: 60px!important;
+    line-height: 20px;
+}
+.react-tabs-active {
+    /* background-color: #ccc!important; */
+    color: #555!important;
+    border-color: #FFF!important;
+    line-height: 20px;
+    border-bottom: 2px solid #187efb!important;
+    background-color: #FFF!important;;
+}
+.react-tabs-tab-close{
+position: absolute;
+border:0!important;
+}
+.react-tabs-active .react-tabs-tab-close:hover{
+    background-color: #002b36!important;
+    color:#FFF!important;
+    }
+
+.back-arrow{
+    line-height: 75px;
+    position: absolute;
+    margin-left: 30px;
+    cursor: pointer;
+
+}
+.front-arrow{
+    line-height: 75px;
+    position: absolute;
+    right: 50vh;
+    cursor: pointer;
+
+}
+.contentText{
+    text-align: center;
+    font-size: 20px;
+    color:#555;
+    font-family: Helvetica Neue;
+    font-weight: 500;
+    margin-top:15px;
+}
+.addTabs{
+    margin-top: 29px;
+    margin-right: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+::-webkit-scrollbar{
+    /* display: none; */
+}
+.modalPopup{
+    background-color: #F2F2F7;
+    height:65px;
+    width: 50%;
+    border-radius:5px;
+    margin:0 auto 0 auto;
+}
+.confirmText{
+    text-align: center;
+    padding-top:10px;
+}
+.btnContainer{
+    position: absolute;
+    left:47%;
+    margin-top:5px;
+}
