@@ -9,8 +9,9 @@
     border: 1px solid #ccc;
     border-radius:4px;
     width:50%;
-    height:30vh;
+    height:33vh;
     margin: 20px auto 0 auto;
+    background-color: #fafafc;
 }
 .tabContainer{
     display:flex;
@@ -18,53 +19,52 @@
     height:85px;
     margin: 10px auto 0 auto;
     width:76%;
-    overflow-x: scroll;
-    overflow-y: hidden;
 
 }
 .react-tabs-container{
-    background-color: #FFF!important;
-    border-color:#FFF!important;
+    background-color: #fafafc!important;
+    border-color:#fafafc!important;
     overflow-x: scroll!important;
     overflow-y: hidden;
     height:50px!important;
+    margin-left:10px;
 }
 .react-tabs-tab {
     color: #555!important;
     width: 65px!important;
     min-width: 60px!important;
     line-height: 20px;
+    display: flex;
 }
 .react-tabs-active {
     /* background-color: #ccc!important; */
     color: #555!important;
-    border-color: #FFF!important;
+    border-color: #fafafc!important;
     line-height: 20px;
     border-bottom: 2px solid #187efb!important;
-    background-color: #FFF!important;;
+    background-color: #fafafc!important;;
+    display: flex;
 }
 .react-tabs-tab-close{
-position: absolute;
-border:0!important;
+    margin-top: -10px;
+    border:0!important;
+    background-color: #fafafc!important;
 }
-.react-tabs-active .react-tabs-tab-close:hover{
-    background-color: #002b36!important;
-    color:#FFF!important;
-    }
 
 .back-arrow{
-    line-height: 75px;
+    line-height: 85px;
     position: absolute;
     margin-left: 30px;
     cursor: pointer;
+    font-size: 23px;
 
 }
 .front-arrow{
-    line-height: 75px;
+    line-height: 85px;
     position: absolute;
     right: 50vh;
     cursor: pointer;
-
+    font-size: 23px;
 }
 .contentText{
     text-align: center;
@@ -81,14 +81,16 @@ border:0!important;
     cursor: pointer;
 }
 ::-webkit-scrollbar{
-    /* display: none; */
+    display:block;
 }
 .modalPopup{
-    background-color: #F2F2F7;
-    height:65px;
-    width: 50%;
-    border-radius:5px;
-    margin:0 auto 0 auto;
+    background-color: #ccc;
+    height: 65px;
+    width: 60%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: -15px auto 0 auto;
+    box-shadow:2px 2px 2px grey;
 }
 .confirmText{
     text-align: center;
@@ -98,4 +100,12 @@ border:0!important;
     position: absolute;
     left:47%;
     margin-top:5px;
+}
+.react-tabs-tab-content{
+    font-family: Helvetica Neue;
+    font-size: 12px;
+    font-weight: 600;
+}
+#back-arrow,#front-arrow{
+    display: none;
 }

@@ -29,6 +29,23 @@ export default class TabComponent extends Component {
     };
   }
 
+
+  componentDidMount=()=>{
+    let element=document.getElementsByClassName("react-tabs-container");
+    element[0].setAttribute('id',"tab_container")
+  }
+
+  componentDidUpdate=()=>{
+    let ele=document.getElementById("tab_container");
+    if(ele.scrollWidth>ele.offsetWidth){
+      document.getElementById("back-arrow").style.display="block";
+      document.getElementById("front-arrow").style.display="block"
+    }else{
+      document.getElementById("back-arrow").style.display="none";
+      document.getElementById("front-arrow").style.display="none"
+    }
+  }
+
   moveTab=(dragIndex, hoverIndex)=>{
     this.setState((state, props) => {
       let newTabs = [...state.tabs]
@@ -39,60 +56,67 @@ export default class TabComponent extends Component {
   }
 
   selectTab=(selectedIndex, selectedID)=>{
-    this.setState((state, props) => {
-      const newTabs=state.tabs.map(item=>({
-        ...item,
-        active:item.id===selectedID
-      }));
-      return { tabs: newTabs };
-    });
+    let tabData=this.state.tabs;
+    tabData.forEach((item)=>{
+      if(item.id===selectedID){
+        if(item.active === false){
+         return item.active=true
+        }
+      }else{
+       return item.active=false
+      }
+    })
+    this.setState({tabs:tabData})
   }
 
 
   // Function for removing tab(by default one tab should always be there)
   closedTab=(removedIndex)=>{
-    this.setState({deleteConfirmation:true,removedIndex:removedIndex})
+    const defaultTab=this.state.tabs;
+    if(defaultTab.length>1){
+     this.setState({deleteConfirmation:true,removedIndex:removedIndex})
+    }
   }
 
   confirmDelete=()=>{
-    this.setState((state,props)=>{
-      let newTabs=[...state.tabs];
-      if(newTabs.length>1){
-        newTabs.splice(state.removedIndex,1)
-      }
+      let newTabs=this.state.tabs;
+      // if(newTabs.length>1){
+        newTabs.splice(this.state.removedIndex,1)
+      // }
       let findActive=newTabs.find(item=>{
         return item.active === true
       })
       if(findActive === undefined){
         newTabs[0].active=true
       }
-      console.log(newTabs)
-      return { tabs: newTabs, deleteConfirmation:false}
-    })
+      this.setState({ tabs: newTabs, deleteConfirmation:false})
   }
 
 //   Funtion for adding new tab (max upto 10)
   addTab=()=>{
-      this.setState((state,props)=>{
-        let newTabs=[...state.tabs];
-        if(newTabs.length<=9){
-        newTabs.push({
-          id: newTabs.length + 1,
-          content: `Tab ${newTabs.length+1}`,
-          active:false,
-          contentText:`Content for Tab ${newTabs.length+1}`
-        });
+      let tabData=this.state.tabs;
+      console.log(tabData)
+      if(tabData.length<=9){
+        let obj={};
+        tabData.forEach(item=>{
+          obj={
+            id: item.id + 1,
+            content: `Tab ${item.id+1}`,
+            active:false,
+            contentText:`Content for Tab ${item.id+1}`
+          }
+        })
+        tabData.push(obj)
       }
-        return { tabs : newTabs}
-      })
+      this.setState({tabs:tabData})
   }
 
   scrollFn=(position)=>{
-    let element=document.getElementById("tabContainer");
+    let scrollId=document.getElementById("tab_container")
     if(position ==="front"){
-      element.scrollLeft+=50;
+      scrollId.scrollLeft+=50;
     }else{
-      element.scrollLeft-=50;
+      scrollId.scrollLeft-=50;
     }
   }
   
